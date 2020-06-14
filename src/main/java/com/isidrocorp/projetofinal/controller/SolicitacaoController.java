@@ -47,7 +47,7 @@ public class SolicitacaoController {
 			String comando = "switchport vlan "+user.getDepartamento().getVlan()+";"+
 			                 "interface range "+user.getComputador().getConectorRede()+" "+
 					         novo.getVlan()+"; exit";
-			
+			System.out.println("Erro a partir daqui");
 			nova.setComandoRoteador(comando);
 			
 			user.setDepartamento(novo);
