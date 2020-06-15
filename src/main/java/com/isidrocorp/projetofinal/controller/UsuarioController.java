@@ -32,12 +32,15 @@ public class UsuarioController {
 		return (ArrayList<Usuario>)dao.findAll();
 	}
 	
+	@SuppressWarnings("unused")
 	@PostMapping("/login")
 	public ResponseEntity<Usuario> logarUsuario(@RequestBody Usuario dadosLogin) {		
 		Usuario res = dao.findByEmail(dadosLogin.getEmail());
+		
 	    if (res != null) {  // o usuario existe!!!
 	    	if (res.getSenha().equals(dadosLogin.getSenha())) {
 	    	   res.setSenha("****");
+	    	
  	    	   return ResponseEntity.ok(res);
 	    	}
 	    	else {
